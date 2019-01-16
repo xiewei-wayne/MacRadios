@@ -2,6 +2,7 @@ MacRadios
 ===========
 
 #### Listening radios on macOS
+Please star ⭐ and join us if you like this project :D
 
 ## Screenshot
 
