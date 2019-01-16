@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -145,15 +145,16 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = "Ingmar Stein";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					95A130250608F92F00D8E30C = {
 						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 95AAF5680856C2DC007CEE36 /* Build configuration list for PBXProject "Radios" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -214,10 +215,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xiewei-wayne.Radios";
 				PRODUCT_NAME = Radios;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -248,10 +246,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.xiewei-wayne.Radios";
 				PRODUCT_NAME = Radios;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -368,8 +363,7 @@
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.2;
 				WARNING_CFLAGS = (
