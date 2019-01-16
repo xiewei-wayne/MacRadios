@@ -40,7 +40,7 @@
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.12</string>
+	<string>10.10</string>
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -51,7 +51,7 @@
 		<true/>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyleft @2019. Released under the GNU Public License.</string>
+	<string>Copyleft Wei Xie @2019. Released under the GNU Public License.</string>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
