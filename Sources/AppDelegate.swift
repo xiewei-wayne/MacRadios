@@ -18,6 +18,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	private var player : AVPlayer?
 	private var radioStreamIndex: Int = 0;
+	private var playPaused : Bool = false;
 	
 	// validate values stored in NSUserDefaults and reset to default if necessary
 	func applicationDidFinishLaunching(_: Notification) {
@@ -38,6 +39,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 		return true;
 	}
 
+	//-----------------------------------------------------------------------//
 	func playAudoByUrl(audioUrl: String) {
 		guard let url = URL(string: audioUrl) else {
 			return
@@ -50,21 +52,38 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 	
 	func playRadioStreamByIndex(streamIndex: Int) {
-		let radioStream = radioArray[streamIndex]
-		statusItem.menu?.items[0].title = "Playing: " + radioStream.name
 		
+		let radioStream = radioArray[streamIndex]
+		statusItem.menu?.items[0].title = "Playing " + radioStream.name
 		playAudoByUrl(audioUrl: radioStream.url)
+		
+		self.radioStreamIndex = streamIndex
+		self.playPaused = false
 	}
 	
 	@objc func playRadioStreamByClickingMenu(_ sender: NSMenuItem) {
 		let streamIndex = sender.tag
-		let radioStream = radioArray[streamIndex]
-		statusItem.menu?.items[0].title = "Playing: " + radioStream.name
 		
-		playAudoByUrl(audioUrl: radioStream.url)
+		playRadioStreamByIndex(streamIndex: streamIndex)
 	}
 	
+	@objc func pausePlayCurrentRadioStream(_ sender: NSMenuItem) {
+		
+		let radioStream = radioArray[self.radioStreamIndex]
+		
 	
+		if self.playPaused {
+			sender.title = "Playing " + radioStream.name
+			self.player?.play()
+			
+			self.playPaused = false
+		} else {
+			sender.title = "Paused " + radioStream.name
+			self.player?.pause()
+			
+			self.playPaused = true
+		}
+	}
 
 	func initStatusButton() {
 		if let button = statusItem.button {
@@ -75,8 +94,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 	func initMainMenu() {
 		let menu = NSMenu()
 
-		let menuItem = NSMenuItem(title: "playing...", action: nil, keyEquivalent: "")
+		let menuItem = NSMenuItem(title: "", action: #selector(AppDelegate.pausePlayCurrentRadioStream(_:)), keyEquivalent: "p")
 		menu.addItem(menuItem)
+		menu.addItem(NSMenuItem.separator())
 
 		for i in 0 ..< radioArray.count {
 			let radioStream = radioArray[i]
